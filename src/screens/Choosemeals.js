@@ -73,28 +73,28 @@ const styles = {
 const db = [
   {
     name: 'Weingummis',
-    img: 'https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/08/1629886761_Amerikanisches-Fast-Food.jpg',
+    img: require('../../assets/img/essen.jpg'),
     category: 'vegan',
     duration: 10,
     description: 'Damn yummi.'
   },
   {
     name: 'Kartoffelbrei',
-    img: 'https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/08/1629886761_Amerikanisches-Fast-Food.jpg',
+    img: require('../../assets/img/essen.jpg'),
     category: 'Saisonal',
     duration: 20,
     description: 'Easy doing.'
   },
   {
     name: 'Blatt',
-    img: 'https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/08/1629886761_Amerikanisches-Fast-Food.jpg',
+    img: require('../../assets/img/essen.jpg'),
     category: 'vegan',
     duration: 16,
     description: 'cool, schmeckz.'
   },
   {
     name: 'Hackschnitzel',
-    img: 'https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/08/1629886761_Amerikanisches-Fast-Food.jpg',
+    img: require('../../assets/img/essen.jpg'),
     category: 'Hauptgericht',
     duration: 45,
     description: 'richtig gut aber das ist jetzt scon ein langer text hoffentlich in 2 Zeilen.'
