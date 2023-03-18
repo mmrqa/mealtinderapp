@@ -51,14 +51,14 @@ const styles = {
     position: 'absolute',
     bottom: 0,
     right: 0,
-    marginRight: '10px',
+    marginRight: 10,
   },
   cardh3: {
-    margin: '10px',
+    margin: 10,
     color: '#000'
   },
   cardh4: {
-    margin: '10px',
+    margin: 10,
     color: '#a0a0a0',
     textTransform: 'uppercase',
   },
