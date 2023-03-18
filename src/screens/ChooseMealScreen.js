@@ -101,7 +101,7 @@ const db = [
   }
 ]
 
-function Choosemeals() {
+function ChooseMealScreen() {
   const characters = db
   const [lastDirection, setLastDirection] = useState()
 
@@ -137,4 +137,4 @@ function Choosemeals() {
   )
 }
 
-export default Choosemeals
+export default ChooseMealScreen
