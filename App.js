@@ -1,15 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Choosemeals from './src/screens/Choosemeals';
+import HomeScreen from './src/screens/HomeScreen';
+import ChooseMealScreen from './src/screens/ChooseMealScreen';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {NavigationContainer} from '@react-navigation/native';
 
-export default function App() {
+const Tab = createMaterialBottomTabNavigator();
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Choosemeals></Choosemeals>
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator initialRouteName='Home'>
+        <Tab.Screen name="Home" component={HomeScreen}/>
+        <Tab.Screen name="Meals" component={ChooseMealScreen}/>
+      </Tab.Navigator>
+      </NavigationContainer>
   );
 }
-
 const styles = StyleSheet.create({
   container: {
     minHeight: '100%',
@@ -18,3 +25,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   }
 });
+
+export default App;
