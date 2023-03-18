@@ -4,10 +4,9 @@ import TinderCard from 'react-tinder-card'
 
 const styles = StyleSheet.create({
   container: {
-    display: 'flex',
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
   },
   header: {
     color: '#000',
