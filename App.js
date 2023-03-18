@@ -1,5 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
 import ChooseMealScreen from './src/screens/ChooseMealScreen';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
@@ -50,14 +48,6 @@ function App() {
     </Provider>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    minHeight: '100%',
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-});
 
 const theme = {
   ...DefaultTheme,
