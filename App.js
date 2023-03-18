@@ -1,5 +1,3 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
 import ChooseMealScreen from './src/screens/ChooseMealScreen';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
