@@ -35,13 +35,32 @@ const styles = {
     width: '100%',
     height: '100%',
     overflow: 'hidden',
-    borderRadius: 20,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+  cardheader: {
+    height: '70%',
   },
   cardTitle: {
     position: 'absolute',
     bottom: 0,
     margin: 10,
-    color: '#fff',
+    color: '#000',
+  },
+  cardDuration: {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    marginRight: '10px',
+  },
+  cardh3: {
+    margin: '10px',
+    color: '#000'
+  },
+  cardh4: {
+    margin: '10px',
+    color: '#a0a0a0',
+    textTransform: 'uppercase',
   },
   infoText: {
     height: 28,
@@ -54,30 +73,30 @@ const styles = {
 const db = [
   {
     name: 'Weingummis',
-    img: 'https://img.chefkoch-cdn.de/rezepte/1909521311313294/bilder/1318625/crop-320x400/italienisches-schweinefilet-a-la-nonna.jpg',
+    img: 'https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/08/1629886761_Amerikanisches-Fast-Food.jpg',
     category: 'vegan',
-    duration: 10, 
+    duration: 10,
     description: 'Damn yummi.'
   },
   {
     name: 'Kartoffelbrei',
-    img: 'https://img.chefkoch-cdn.de/rezepte/1909521311313294/bilder/1318625/crop-320x400/italienisches-schweinefilet-a-la-nonna.jpg',
+    img: 'https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/08/1629886761_Amerikanisches-Fast-Food.jpg',
     category: 'Saisonal',
-    duration: 20, 
+    duration: 20,
     description: 'Easy doing.'
   },
   {
     name: 'Blatt',
-    img: 'https://img.chefkoch-cdn.de/rezepte/1909521311313294/bilder/1318625/crop-320x400/italienisches-schweinefilet-a-la-nonna.jpg',
+    img: 'https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/08/1629886761_Amerikanisches-Fast-Food.jpg',
     category: 'vegan',
-    duration: 16, 
+    duration: 16,
     description: 'cool, schmeckz.'
   },
   {
     name: 'Hackschnitzel',
-    img: 'https://img.chefkoch-cdn.de/rezepte/1909521311313294/bilder/1318625/crop-320x400/italienisches-schweinefilet-a-la-nonna.jpg',
+    img: 'https://www.ab-in-den-urlaub.de/magazin/wp-content/uploads/2021/08/1629886761_Amerikanisches-Fast-Food.jpg',
     category: 'Hauptgericht',
-    duration: 45, 
+    duration: 45,
     description: 'richtig gut aber das ist jetzt scon ein langer text hoffentlich in 2 Zeilen.'
   }
 ]
@@ -102,9 +121,13 @@ function Choosemeals() {
         {characters.map((character) =>
           <TinderCard key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
             <View style={styles.card}>
-              <ImageBackground style={styles.cardImage} source={character.img}>
-                <Text style={styles.cardTitle}>{character.name}</Text>
-              </ImageBackground>
+              <View style={styles.cardheader}>
+                <ImageBackground style={styles.cardImage} source={character.img}>
+                </ImageBackground>
+              </View>
+              <Text style={styles.cardh4}>{character.category}</Text>
+                <Text style={styles.cardh3}>{character.name}</Text>
+                <Text style={styles.cardDuration}>{character.duration}'</Text>
             </View>
           </TinderCard>
         )}
