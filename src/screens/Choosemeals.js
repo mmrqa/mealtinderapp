@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { ImageBackground, Text, View } from 'react-native'
+import { ImageBackground, Text, View, StyleSheet } from 'react-native'
 import TinderCard from 'react-tinder-card'
 
-const styles = {
+const styles = StyleSheet.create({
   container: {
     display: 'flex',
     alignItems: 'center',
@@ -68,7 +68,7 @@ const styles = {
     display: 'flex',
     zIndex: -100,
   }
-}
+});
 
 const db = [
   {
