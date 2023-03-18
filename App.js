@@ -57,5 +57,4 @@ const theme = {
   },
 };
 
-
 export default App;
