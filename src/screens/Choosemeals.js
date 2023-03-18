@@ -127,7 +127,7 @@ function Choosemeals() {
               </View>
               <Text style={styles.cardh4}>{character.category}</Text>
                 <Text style={styles.cardh3}>{character.name}</Text>
-                <Text style={styles.cardDuration}>{character.duration}'</Text>
+                <Text style={styles.cardDuration}>{character.duration}</Text>
             </View>
           </TinderCard>
         )}
