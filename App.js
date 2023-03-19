@@ -9,7 +9,7 @@ import { DefaultTheme, Provider } from 'react-native-paper';
 const Tab = createMaterialBottomTabNavigator();
 
 function App() {
-  const activeColor = 'red';
+  const activeColor = '#1b5866';
   const inactiveColor = 'white';
 
   return (
