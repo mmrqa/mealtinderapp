@@ -8,8 +8,10 @@ import { DefaultTheme, Provider } from 'react-native-paper';
 
 const Tab = createMaterialBottomTabNavigator();
 
+import ColorStyleSheet from './components/ColorStyleSheet';
+
 function App() {
-  const activeColor = '#1b5866';
+  const activeColor = ColorStyleSheet.primaryBackground.backgroundColor;
   const inactiveColor = 'white';
 
   return (

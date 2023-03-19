@@ -1,11 +1,13 @@
 import { View, Text, StyleSheet } from "react-native"
 
+import ColorStyleSheet from '../../components/ColorStyleSheet';
+
 const styles = StyleSheet.create({
     container:{
         flex: 1, 
         justifyContent: 'center',
         alignItems: 'center', 
-        backgroundColor: '#1b5866',
+        backgroundColor: ColorStyleSheet.primaryBackground.backgroundColor,
     }
 });
 

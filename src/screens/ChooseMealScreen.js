@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { ImageBackground, Text, View, StyleSheet } from 'react-native'
 import TinderCard from 'react-tinder-card'
 
+import ColorStyleSheet from '../../components/ColorStyleSheet';
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#1b5866',
+    backgroundColor: ColorStyleSheet.primaryBackground.backgroundColor,
   },
   header: {
     color: '#000',
