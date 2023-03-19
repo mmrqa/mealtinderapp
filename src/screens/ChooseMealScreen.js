@@ -118,7 +118,10 @@ function ChooseMealScreen() {
       <Text style={styles.header}>React Native Tinder Card</Text>
       <View style={styles.cardContainer}>
         {characters.map((character) =>
-          <TinderCard preventSwipe={['up', 'down']} key={character.name} onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
+          <TinderCard preventSwipe={['up', 'down']} 
+                      key={character.name}
+                      swipeRequirementType='position' 
+                      onSwipe={(dir) => swiped(dir, character.name)} onCardLeftScreen={() => outOfFrame(character.name)}>
             <View style={styles.card}>
               <View style={styles.cardheader}>
                 <ImageBackground style={styles.cardImage} source={character.img}>
