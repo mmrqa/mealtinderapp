@@ -26,6 +26,8 @@ export default function ProfileScreen() {
 
     return (
         <View style={styles.mainViewContainer}>
+            <Text style={styles.headerText} >Account Settings</Text>
+
             <Pressable onPress={onPressAccount}>
                 <View style={styles.boxContainer}>
                     <View style={styles.topBox}>
@@ -36,19 +38,20 @@ export default function ProfileScreen() {
                 </View>
             </Pressable>
 
-            <Pressable onPress={onPressSettings}>
+            <Pressable onPress={onPressSubscribtion}>
                 <View style={styles.boxContainer}>
-                    <View style={styles.box}>
-                        <MaterialCommunityIcons name="cog" color="white" size={50} />
-                        <Text style={styles.boxText}>Settings</Text>
+                    <View style={styles.bottomBox}>
+                        <MaterialCommunityIcons name="credit-card" color="white" size={50} />
+                        <Text style={styles.boxText}>Subscribtion</Text>
                         <MaterialCommunityIcons name="chevron-right" color="white" size={50} />
                     </View>
                 </View>
             </Pressable>
 
+            <Text style={styles.headerText} >Help & Informations</Text>
             <Pressable onPress={onPressHelp}>
                 <View style={styles.boxContainer}>
-                    <View style={styles.box}>
+                    <View style={styles.topBox}>
                         <MaterialCommunityIcons name="help-circle" color="white" size={50} />
                         <Text style={styles.boxText}>Help</Text>
                         <MaterialCommunityIcons name="chevron-right" color="white" size={50} />
@@ -58,7 +61,7 @@ export default function ProfileScreen() {
 
             <Pressable onPress={onPressAbout}>
                 <View style={styles.boxContainer}>
-                    <View style={styles.box}>
+                    <View style={styles.bottomBox}>
                         <MaterialCommunityIcons name="information" color="white" size={50} />
                         <Text style={styles.boxText}>About</Text>
                         <MaterialCommunityIcons name="chevron-right" color="white" size={50} />
@@ -66,11 +69,12 @@ export default function ProfileScreen() {
                 </View>
             </Pressable>
 
-            <Pressable onPress={onPressSubscribtion}>
+            <Text style={styles.headerText} >Settings & Preferences</Text>
+            <Pressable onPress={onPressSettings}>
                 <View style={styles.boxContainer}>
-                    <View style={styles.bottomBox}>
-                        <MaterialCommunityIcons name="credit-card" color="white" size={50} />
-                        <Text style={styles.boxText}>Subscribtion</Text>
+                    <View style={styles.singleBox}>
+                        <MaterialCommunityIcons name="cog" color="white" size={50} />
+                        <Text style={styles.boxText}>Settings</Text>
                         <MaterialCommunityIcons name="chevron-right" color="white" size={50} />
                     </View>
                 </View>
@@ -87,6 +91,7 @@ const styles = StyleSheet.create({
     },
     boxContainer: {
         flexDirection: "row",
+        paddingHorizontal: 5,
     },
     topBox: {
         flex: 1,
@@ -99,10 +104,10 @@ const styles = StyleSheet.create({
         borderTopLeftRadius: 20,
         borderTopRightRadius: 20,
         borderColor: "white",
-        borderTopWidth: 3,
-        borderLeftWidth: 3,
-        borderRightWidth: 3,
-        borderBottomWidth: 3,
+        borderTopWidth: 1,
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
         shadowColor: 'black',
         shadowOpacity: 0.2,
         shadowRadius: 20,
@@ -115,9 +120,9 @@ const styles = StyleSheet.create({
         backgroundColor: "black",
         alignContent: "center",
         alignItems: "center",
-        borderBottomWidth: 3,
-        borderLeftWidth: 3,
-        borderRightWidth: 3,
+        borderBottomWidth: 1,
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
         borderColor: "white",
         shadowColor: 'black',
         shadowOpacity: 0.2,
@@ -134,12 +139,37 @@ const styles = StyleSheet.create({
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
         borderColor: "white",
-        borderLeftWidth: 3,
-        borderRightWidth: 3,
-        borderBottomWidth: 3,
+        borderLeftWidth: 1,
+        borderRightWidth: 1,
+        borderBottomWidth: 1,
         shadowColor: 'black',
         shadowOpacity: 0.2,
         shadowRadius: 20,
+    },
+    singleBox: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        padding: 5,
+        backgroundColor: "black",
+        alignContent: "center",
+        alignItems: "center",
+        borderRadius: 20,
+        borderColor: "white",
+        borderWidth: 1,
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+        shadowRadius: 20,
+    },
+    headerText: {
+        color: "white",
+        fontSize: 20,
+        alignContent: "center",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        paddingTop: 20,
+        paddingBottom: 5,
     },
     boxText: {
         color: "white",
