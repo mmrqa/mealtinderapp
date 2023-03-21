@@ -23,7 +23,6 @@ export default function ProfileScreen() {
         alert("Subscribtion")
     }
 
-
     return (
         <View style={styles.mainViewContainer}>
             <Text style={styles.headerText} >Account Settings</Text>
@@ -31,9 +30,17 @@ export default function ProfileScreen() {
             <Pressable onPress={onPressAccount}>
                 <View style={styles.boxContainer}>
                     <View style={styles.topBox}>
-                        <MaterialCommunityIcons name="account" color="white" size={50} />
+                        <MaterialCommunityIcons
+                            name="account"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                         <Text style={styles.boxText}>Profile</Text>
-                        <MaterialCommunityIcons name="chevron-right" color="white" size={50} />
+                        <MaterialCommunityIcons
+                            name="chevron-right"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                     </View>
                 </View>
             </Pressable>
@@ -41,9 +48,16 @@ export default function ProfileScreen() {
             <Pressable onPress={onPressSubscribtion}>
                 <View style={styles.boxContainer}>
                     <View style={styles.bottomBox}>
-                        <MaterialCommunityIcons name="credit-card" color="white" size={50} />
+                        <MaterialCommunityIcons name="credit-card"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                         <Text style={styles.boxText}>Subscribtion</Text>
-                        <MaterialCommunityIcons name="chevron-right" color="white" size={50} />
+                        <MaterialCommunityIcons
+                            name="chevron-right"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                     </View>
                 </View>
             </Pressable>
@@ -52,9 +66,17 @@ export default function ProfileScreen() {
             <Pressable onPress={onPressHelp}>
                 <View style={styles.boxContainer}>
                     <View style={styles.topBox}>
-                        <MaterialCommunityIcons name="help-circle" color="white" size={50} />
+                        <MaterialCommunityIcons
+                            name="help-circle"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                         <Text style={styles.boxText}>Help</Text>
-                        <MaterialCommunityIcons name="chevron-right" color="white" size={50} />
+                        <MaterialCommunityIcons
+                            name="chevron-right"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                     </View>
                 </View>
             </Pressable>
@@ -62,9 +84,17 @@ export default function ProfileScreen() {
             <Pressable onPress={onPressAbout}>
                 <View style={styles.boxContainer}>
                     <View style={styles.bottomBox}>
-                        <MaterialCommunityIcons name="information" color="white" size={50} />
+                        <MaterialCommunityIcons
+                            name="information"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                         <Text style={styles.boxText}>About</Text>
-                        <MaterialCommunityIcons name="chevron-right" color="white" size={50} />
+                        <MaterialCommunityIcons
+                            name="chevron-right"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                     </View>
                 </View>
             </Pressable>
@@ -73,9 +103,17 @@ export default function ProfileScreen() {
             <Pressable onPress={onPressSettings}>
                 <View style={styles.boxContainer}>
                     <View style={styles.singleBox}>
-                        <MaterialCommunityIcons name="cog" color="white" size={50} />
+                        <MaterialCommunityIcons
+                            name="cog"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                         <Text style={styles.boxText}>Settings</Text>
-                        <MaterialCommunityIcons name="chevron-right" color="white" size={50} />
+                        <MaterialCommunityIcons
+                            name="chevron-right"
+                            color={styles.iconStyle.color}
+                            size={styles.iconStyle.size}
+                        />
                     </View>
                 </View>
             </Pressable>
@@ -174,5 +212,9 @@ const styles = StyleSheet.create({
     boxText: {
         color: "white",
         fontSize: 20,
-    }
+    },
+    iconStyle: {
+        color: "white",
+        size: 35,
+    },
 })
