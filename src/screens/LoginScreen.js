@@ -2,11 +2,37 @@ import { View, Text, Modal, Pressable, StyleSheet, TextInput } from "react-nativ
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useState } from "react"
 
+import SettingsButton from "../../components/SettingsButton";
+
 export default function LoginScreen({ isVisible, children, onClose }) {
     const [loggedIn, setLoggedIn] = useState(false)
 
     function onPressLogin() {
-        alert("Login")
+        setLoggedIn(true)
+    }
+
+    function onPressLogout() {
+        setLoggedIn(false)
+    }
+
+    function onPressSignUp() {
+        alert("Sign Up")
+    }
+
+    function onPressSeeUserInformation() {
+        alert("User Information")
+    }
+
+    function onPressResetPassword() {
+        alert("Reset Password")
+    }
+
+    function onPressUpdateEmail() {
+        alert("Update Email")
+    }
+
+    function onPressDeleteAccount() {
+        alert("Delete Account")
     }
 
     return (
@@ -27,21 +53,54 @@ export default function LoginScreen({ isVisible, children, onClose }) {
                 </View>
 
                 {loggedIn ? (
-                    null
+                    <View>
+                        <SettingsButton
+                            onPressFunction={onPressLogout}
+                            iconName="logout"
+                            title="Logout"
+                            styleProps="top"
+                        />
+                        <SettingsButton
+                            onPressFunction={onPressSeeUserInformation}
+                            iconName="account"
+                            title="See User Information"
+                            styleProps="center"
+                        />
+                        <SettingsButton
+                            onPressFunction={onPressResetPassword}
+                            iconName="lock-reset"
+                            title="Reset Password"
+                            styleProps="center"
+                        />
+                        <SettingsButton
+                            onPressFunction={onPressUpdateEmail}
+                            iconName="email"
+                            title="Update Email"
+                            styleProps="center"
+                        />
+                        <SettingsButton
+                            onPressFunction={onPressDeleteAccount}
+                            iconName="account-remove"
+                            title="Delete Account"
+                            styleProps="bottom"
+                        />
+                    </View>
+
                 ) : (
-                    <View style={styles.buttonContainer}>
-                        <Pressable onPress={onPressLogin}>
-                            <View style={[styles.button, { borderTopLeftRadius: 10, borderTopRightRadius: 10 }]}>
-                                <MaterialCommunityIcons name="login" color={styles.iconStyle.color} size={styles.iconStyle.size} />
-                                <Text style={styles.buttonText} >Log in</Text>
-                            </View>
-                        </Pressable>
-                        <Pressable onPress={onPressLogin}>
-                            <View style={[styles.button, { borderBottomRightRadius: 10, borderBottomLeftRadius: 10 }]}>
-                                <MaterialCommunityIcons name="account" color={styles.iconStyle.color} size={styles.iconStyle.size} />
-                                <Text style={styles.buttonText} >Sign up</Text>
-                            </View>
-                        </Pressable>
+                    <View>
+                        <SettingsButton
+                            onPressFunction={onPressLogin}
+                            iconName="login"
+                            title="Login"
+                            styleProps="top"
+                        />
+
+                        <SettingsButton
+                            onPressFunction={onPressSignUp}
+                            iconName="account"
+                            title="Create Account"
+                            styleProps="bottom"
+                        />
                     </View>
                 )
                 }
@@ -55,7 +114,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: '80%',
         width: '100%',
-        backgroundColor: 'white',
+        backgroundColor: 'grey',
         borderTopRightRadius: 18,
         borderTopLeftRadius: 18,
         position: 'absolute',
@@ -80,26 +139,5 @@ const styles = StyleSheet.create({
     iconStyle: {
         color: 'white',
         size: 35,
-    },
-    buttonContainer: {
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-        marginTop: 140,
-        paddingHorizontal: 20,
-    },
-    button: {
-        flexDirection: 'row',
-        backgroundColor: 'black',
-        borderWidth: 1,
-        borderColor: 'black',
-        alignItems: 'center',
-        alignContent: 'center',
-        justifyContent: 'center',
-        padding: 5,
-        justifyContent: 'space-between',
-    },
-    buttonText: {
-        color: 'white',
-        fontSize: 20,
     },
 });
