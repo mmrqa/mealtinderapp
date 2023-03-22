@@ -1,11 +1,12 @@
-import { View, Text, StyleSheet, Pressable } from "react-native"
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import ColorStyleSheet from "../../components/ColorStyleSheet"
+import ColorStyleSheet from "../../components/ColorStyleSheet";
+import { useState } from "react";
+
+import LoginScreen from "./LoginScreen";
 
 export default function ProfileScreen() {
-    function onPressAccount() {
-        alert("Account")
-    }
+    const [showLoginScreen, setShowLoginScreen] = useState(false);
 
     function onPressSettings() {
         alert("Settings")
@@ -26,8 +27,7 @@ export default function ProfileScreen() {
     return (
         <View style={styles.mainViewContainer}>
             <Text style={styles.headerText} >Account Settings</Text>
-
-            <Pressable onPress={onPressAccount}>
+            <Pressable onPress={() => setShowLoginScreen(true)}>
                 <View style={styles.boxContainer}>
                     <View style={styles.topBox}>
                         <MaterialCommunityIcons
@@ -117,6 +117,10 @@ export default function ProfileScreen() {
                     </View>
                 </View>
             </Pressable>
+            <View style={styles.mainViewContainer}>
+                <LoginScreen isVisible={showLoginScreen} onClose={() => setShowLoginScreen(false)}>
+                </LoginScreen>
+            </View>
         </View>
     );
 }
