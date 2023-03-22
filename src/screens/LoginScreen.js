@@ -1,8 +1,12 @@
-import { View, Text, Modal, Pressable, StyleSheet } from "react-native"
-import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import { View, Text, Modal, Pressable, StyleSheet, TextInput } from "react-native"
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useState } from "react"
 
 export default function LoginScreen({ isVisible, children, onClose }) {
+    function onPressLogin() {
+        alert("Login")
+    }
+
     return (
         <Modal
             visible={isVisible}
@@ -11,13 +15,14 @@ export default function LoginScreen({ isVisible, children, onClose }) {
         >
             <View style={styles.modalContent}>
                 <View style={styles.titleContainer}>
-                    <View></View>
-                    <Text style={styles.title}>Login</Text>
+                    <Pressable>
+                        <MaterialCommunityIcons name="close" color={styles.titleContainer.backgroundColor} size={30} />
+                    </Pressable>
+                    <Text style={styles.title}>Account Settings</Text>
                     <Pressable onPress={onClose}>
-                        <MaterialIcons name="close" color="black" size={30} />
+                        <MaterialCommunityIcons name="close" color={styles.iconStyle.color} size={styles.iconStyle.size} />
                     </Pressable>
                 </View>
-                {children}
             </View>
         </Modal>
     );
@@ -25,17 +30,18 @@ export default function LoginScreen({ isVisible, children, onClose }) {
 
 const styles = StyleSheet.create({
     modalContent: {
+        flex: 1,
         height: '80%',
         width: '100%',
-        backgroundColor: '#25292e',
+        backgroundColor: 'white',
         borderTopRightRadius: 18,
         borderTopLeftRadius: 18,
         position: 'absolute',
         bottom: 114,
     },
     titleContainer: {
-        height: '16%',
-        backgroundColor: '#464C55',
+        height: '10%',
+        backgroundColor: 'grey',
         borderTopRightRadius: 10,
         borderTopLeftRadius: 10,
         paddingHorizontal: 20,
@@ -45,15 +51,12 @@ const styles = StyleSheet.create({
     },
     title: {
         color: '#fff',
-        fontSize: 16,
+        fontSize: 20,
         alignContent: 'center',
         justifyContent: 'center',
     },
-    pickerContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 50,
-        paddingVertical: 20,
+    iconStyle: {
+        color: '#fff',
+        size: 30,
     },
 });
