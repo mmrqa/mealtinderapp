@@ -3,6 +3,8 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { useState } from "react"
 
 export default function LoginScreen({ isVisible, children, onClose }) {
+    const [loggedIn, setLoggedIn] = useState(false)
+
     function onPressLogin() {
         alert("Login")
     }
@@ -23,8 +25,28 @@ export default function LoginScreen({ isVisible, children, onClose }) {
                         <MaterialCommunityIcons name="close" color={styles.iconStyle.color} size={styles.iconStyle.size} />
                     </Pressable>
                 </View>
+
+                {loggedIn ? (
+                    null
+                ) : (
+                    <View style={styles.buttonContainer}>
+                        <Pressable onPress={onPressLogin}>
+                            <View style={[styles.button, { borderTopLeftRadius: 10, borderTopRightRadius: 10 }]}>
+                                <MaterialCommunityIcons name="login" color={styles.iconStyle.color} size={styles.iconStyle.size} />
+                                <Text style={styles.buttonText} >Log in</Text>
+                            </View>
+                        </Pressable>
+                        <Pressable onPress={onPressLogin}>
+                            <View style={[styles.button, { borderBottomRightRadius: 10, borderBottomLeftRadius: 10 }]}>
+                                <MaterialCommunityIcons name="account" color={styles.iconStyle.color} size={styles.iconStyle.size} />
+                                <Text style={styles.buttonText} >Sign up</Text>
+                            </View>
+                        </Pressable>
+                    </View>
+                )
+                }
             </View>
-        </Modal>
+        </Modal >
     );
 }
 
@@ -56,7 +78,28 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     iconStyle: {
-        color: '#fff',
-        size: 30,
+        color: 'white',
+        size: 35,
+    },
+    buttonContainer: {
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        marginTop: 140,
+        paddingHorizontal: 20,
+    },
+    button: {
+        flexDirection: 'row',
+        backgroundColor: 'black',
+        borderWidth: 1,
+        borderColor: 'black',
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'center',
+        padding: 5,
+        justifyContent: 'space-between',
+    },
+    buttonText: {
+        color: 'white',
+        fontSize: 20,
     },
 });
