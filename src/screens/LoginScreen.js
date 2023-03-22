@@ -6,10 +6,12 @@ import SettingsButton from "../../components/SettingsButton";
 
 export default function LoginScreen({ isVisible, children, onClose }) {
     const [loggedIn, setLoggedIn] = useState(false)
+    const [username, setUsername] = useState('')
 
     function onPressLogin() {
         const username = 'LegToTheLeggi';
-        const password = '***********';
+        setUsername(username)
+        const password = '***'
 
         const url = new URL('https://parseapi.back4app.com/login');
         url.searchParams.append('username', username);
@@ -88,7 +90,7 @@ export default function LoginScreen({ isVisible, children, onClose }) {
                         <SettingsButton
                             onPressFunction={onPressSeeUserInformation}
                             iconName="account"
-                            title="See User Information"
+                            title={username}
                             styleProps="center"
                         />
                         <SettingsButton
