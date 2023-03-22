@@ -1,6 +1,6 @@
-import { View, Text, Modal, Pressable, StyleSheet, TextInput } from "react-native"
+import { View, Text, Modal, Pressable, StyleSheet, TextInput } from "react-native";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { useState } from "react"
+import { useState } from "react";
 
 import SettingsButton from "../../components/SettingsButton";
 
@@ -8,7 +8,32 @@ export default function LoginScreen({ isVisible, children, onClose }) {
     const [loggedIn, setLoggedIn] = useState(false)
 
     function onPressLogin() {
-        setLoggedIn(true)
+        const username = 'LegToTheLeggi';
+        const password = '***********';
+
+        const url = new URL('https://parseapi.back4app.com/login');
+        url.searchParams.append('username', username);
+        url.searchParams.append('password', password);
+
+        fetch(url.toString(), {
+            method: 'GET',
+            headers: {
+                'X-Parse-Application-Id': '2fR3H4gRXOGBTmVCAhSihMRufRQak3ZM5rWKaqVk',
+                'X-Parse-REST-API-Key': 'OPXrEgj3luNljsGSHP0g6OGw1AdnZ2bKYKieEkry',
+                'X-Parse-Revocable-Session': '1'
+            }
+        })
+            .then(response => {
+                if (response.status === 200) {
+                    console.log(response)
+                    setLoggedIn(true)
+                } else {
+                    alert("Cannot log in ")
+                }
+            })
+            .catch(error => {
+                alert("Error: " + error.code + " " + error.message)
+            });
     }
 
     function onPressLogout() {
