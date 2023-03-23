@@ -12,6 +12,7 @@ import {
 } from 'react-native';
 
 import ColorStyleSheet from '../../components/ColorStyleSheet';
+import ImagePickerExample from '../components/ImagePicker';
 
 const styles = StyleSheet.create({
     container: {
@@ -52,8 +53,7 @@ export default function HomeScreen() {
                         maxLength={253} placeholder="Description" style={styles.textInput} />
                     <TextInput placeholder="Link" style={styles.textInput} />
                     <TextInput placeholder="Duration" style={styles.textInput} />
-                    <TextInput placeholder="image" style={styles.textInput} />
-                    
+                    <ImagePickerExample/>
                     <View style={styles.btnContainer}>
                         <Button title="Add" onPress={() => null} />
                     </View>
