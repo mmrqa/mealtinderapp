@@ -3,7 +3,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import ColorStyleSheet from "../../components/ColorStyleSheet";
 import { useState } from "react";
 
-import LoginScreen from "./LoginScreen";
+import LoginComponent from "../../components/LoginComponent";
 
 export default function ProfileScreen() {
     const [showLoginScreen, setShowLoginScreen] = useState(false);
@@ -118,8 +118,8 @@ export default function ProfileScreen() {
                 </View>
             </Pressable>
             <View style={styles.mainViewContainer}>
-                <LoginScreen isVisible={showLoginScreen} onClose={() => setShowLoginScreen(false)}>
-                </LoginScreen>
+                <LoginComponent isVisible={showLoginScreen} onClose={() => setShowLoginScreen(false)}>
+                </LoginComponent>
             </View>
         </View>
     );

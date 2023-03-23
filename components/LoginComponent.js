@@ -2,7 +2,7 @@ import { View, Text, Modal, Pressable, StyleSheet, TextInput } from "react-nativ
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useState } from "react"
 
-export default function LoginScreen({ isVisible, children, onClose }) {
+export default function LoginComponent({ isVisible, children, onClose }) {
     function onPressLogin() {
         alert("Login")
     }
