@@ -3,15 +3,14 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { useState } from "react";
 
 import SettingsButton from "./SettingsButton";
+import login_id from "../components/Back4AppApi";
 
 export default function LoginComponent({ isVisible, children, onClose }) {
     const [loggedIn, setLoggedIn] = useState(false)
     const [username, setUsername] = useState('')
+    const [password, setPassword] = useState('')
 
     function onPressLogin() {
-        const username = 'LegToTheLeggi';
-        setUsername(username)
-        const password = '***'
 
         const url = new URL('https://parseapi.back4app.com/login');
         url.searchParams.append('username', username);
@@ -20,8 +19,8 @@ export default function LoginComponent({ isVisible, children, onClose }) {
         fetch(url.toString(), {
             method: 'GET',
             headers: {
-                'X-Parse-Application-Id': '2fR3H4gRXOGBTmVCAhSihMRufRQak3ZM5rWKaqVk',
-                'X-Parse-REST-API-Key': 'OPXrEgj3luNljsGSHP0g6OGw1AdnZ2bKYKieEkry',
+                'X-Parse-Application-Id': login_id.application_id,
+                'X-Parse-REST-API-Key': login_id.rest_api_key,
                 'X-Parse-Revocable-Session': '1'
             }
         })
@@ -115,6 +114,18 @@ export default function LoginComponent({ isVisible, children, onClose }) {
 
                 ) : (
                     <View>
+                        <TextInput
+                            style={{ height: 40, borderColor: 'black', borderWidth: 1, alignContent: 'center', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', textAlign: 'center', width: '50%', alignSelf: 'center' }}
+                            onChangeText={text => setUsername(text)}
+                            value={username}
+                        />
+
+                        <TextInput
+                            style={{ height: 40, borderColor: 'black', borderWidth: 1, alignContent: 'center', justifyContent: 'center', alignItems: 'center', backgroundColor: 'white', textAlign: 'center', width: '50%', alignSelf: 'center' }}
+                            onChangeText={text => setPassword(text)}
+                            value={password}
+                        />
+
                         <SettingsButton
                             onPressFunction={onPressLogin}
                             iconName="login"
