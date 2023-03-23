@@ -2,7 +2,7 @@ import { View, Text, Modal, Pressable, StyleSheet, TextInput } from "react-nativ
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useState } from "react";
 
-import SettingsButton from "../../components/SettingsButton";
+import SettingsButton from "./SettingsButton";
 
 export default function LoginComponent({ isVisible, children, onClose }) {
     const [loggedIn, setLoggedIn] = useState(false)
