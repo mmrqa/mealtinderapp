@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 
 export default function HomeScreen() {
     const [image, setImage] = useState(require('../../assets/img/upload_food.jpg'));
-
+    const [status, setStatus] = useState('baseImage');
     
     const uploadRecipe = async () => {
         fetch('https://webhook.site/61eb2c5d-35f9-45d5-bf94-8a8782adbe41', {
@@ -77,7 +77,6 @@ export default function HomeScreen() {
         )
     };
 
-
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
         let result = await ImagePicker.launchImageLibraryAsync({
@@ -91,6 +90,7 @@ export default function HomeScreen() {
 
         if (!result.canceled) {
             setImage(result.assets[0].uri);
+            setStatus('picked');
         }
     };
 
@@ -108,9 +108,9 @@ export default function HomeScreen() {
                     <TextInput placeholder="Duration" style={styles.textInput} />
 
                     <ImageBackground source={{ uri: image }} style={{ width: '100%', height: 200, borderRadius: 5, shadowOpacity: 0.3 }}>
-                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                       {status === 'baseImage' && <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
                             <Text style={styles.textAddImage}>Hit the + and add a picture</Text>
-                        </View>
+                        </View>}
                         <View style={styles.btnAddImage}>
                             <Button title="+" onPress={pickImage} />
                         </View>
