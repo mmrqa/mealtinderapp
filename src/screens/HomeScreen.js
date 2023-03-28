@@ -59,12 +59,24 @@ const styles = StyleSheet.create({
     }
 });
 
-const uploadRecipe = async () => {
-    alert("g");
-}
 
 export default function HomeScreen() {
     const [image, setImage] = useState(require('../../assets/img/upload_food.jpg'));
+
+    
+    const uploadRecipe = async () => {
+        fetch('https://webhook.site/61eb2c5d-35f9-45d5-bf94-8a8782adbe41', {
+            method: 'POST',
+            body: image,
+        }).then(
+            response => response.json()
+        ).then(
+            json => {
+               console.log(json);
+            }
+        )
+    };
+
 
     const pickImage = async () => {
         // No permissions request is necessary for launching the image library
