@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
     View,
     KeyboardAvoidingView,
@@ -6,13 +6,15 @@ import {
     StyleSheet,
     Text,
     Platform,
+    Image,
     TouchableWithoutFeedback,
     Button,
     Keyboard,
 } from 'react-native';
 
 import ColorStyleSheet from '../../components/ColorStyleSheet';
-import ImagePickerExample from '../components/ImagePicker';
+import * as ImagePicker from 'expo-image-picker';
+import { ImageBackground } from 'react-native-web';
 
 const styles = StyleSheet.create({
     container: {
@@ -38,9 +40,48 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         marginTop: 12,
     },
+    btnAddImage: {
+        position: 'absolute',
+        right: 1,
+        bottom: 1,
+        borderRadius: 10,
+        margin: 5,
+    },
+    textAddImage: {
+        backgroundColor: '#2196F3',
+        color: 'white',
+        fontSize: 16,
+        padding: 3,
+        borderRadius: 10,
+        shadowColor: 'black',
+        shadowOpacity: 0.2,
+        shadowRadius: 20,
+    }
 });
 
+const uploadRecipe = async () => {
+    alert("g");
+}
+
 export default function HomeScreen() {
+    const [image, setImage] = useState(require('../../assets/img/upload_food.jpg'));
+
+    const pickImage = async () => {
+        // No permissions request is necessary for launching the image library
+        let result = await ImagePicker.launchImageLibraryAsync({
+            mediaTypes: ImagePicker.MediaTypeOptions.All,
+            allowsEditing: true,
+            aspect: [4, 3],
+            quality: 1,
+        });
+
+        console.log(result);
+
+        if (!result.canceled) {
+            setImage(result.assets[0].uri);
+        }
+    };
+
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -53,9 +94,17 @@ export default function HomeScreen() {
                         maxLength={253} placeholder="Description" style={styles.textInput} />
                     <TextInput placeholder="Link" style={styles.textInput} />
                     <TextInput placeholder="Duration" style={styles.textInput} />
-                    <ImagePickerExample/>
+
+                    <ImageBackground source={{ uri: image }} style={{ width: '100%', height: 200, borderRadius: 5, shadowOpacity: 0.3 }}>
+                        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={styles.textAddImage}>Hit the + and add a picture</Text>
+                        </View>
+                        <View style={styles.btnAddImage}>
+                            <Button title="+" onPress={pickImage} />
+                        </View>
+                    </ImageBackground>
                     <View style={styles.btnContainer}>
-                        <Button title="Add" onPress={() => null} />
+                        <Button title="Add" onPress={uploadRecipe} />
                     </View>
                 </View>
             </TouchableWithoutFeedback>
