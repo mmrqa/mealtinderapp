@@ -60,7 +60,8 @@ const styles = StyleSheet.create({
 
 
 export default function HomeScreen() {
-    const [image, setImage] = useState(require('../../assets/img/upload_food.jpg'));
+    const placerholderImage = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hostgator.com%2Fhelp%2Farticle%2Fadding-images-in-weebly&psig=AOvVaw0FykBwG6Wjqq4uBHrzSKZ8&ust=1680198591927000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKDy8tXZgf4CFQAAAAAdAAAAABAE";
+    const [image, setImage] = useState(placerholderImage);
     const [status, setStatus] = useState('baseImage');
 
     const uploadRecipe = async () => {
@@ -109,7 +110,7 @@ export default function HomeScreen() {
                     <TextInput placeholder="Link" style={styles.textInput} />
                     <TextInput placeholder="Duration" style={styles.textInput} />
 
-                    <ImageBackground source={{ uri: image }} style={{ width: '100%', height: 200, borderRadius: 5, shadowOpacity: 0.3 }}>
+                    <ImageBackground source={{ uri: image}} style={{ width: '100%', height: 200, borderRadius: 5, shadowOpacity: 0.3 }}>
                         <View style={styles.btnAddImage}>
                             <Button title="+" onPress={pickImage} />
                         </View>
