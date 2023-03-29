@@ -64,16 +64,18 @@ export default function HomeScreen() {
     const [status, setStatus] = useState('baseImage');
     
     const uploadRecipe = async () => {
-        fetch('https://webhook.site/61eb2c5d-35f9-45d5-bf94-8a8782adbe41', {
-            method: 'POST',
-            body: image,
-        }).then(
-            response => response.json()
-        ).then(
-            json => {
-               console.log(json);
-            }
-        )
+        console.log(image);
+        // Fetch for later use when Backend is ready
+        // fetch('https://webhook.site/61eb2c5d-35f9-45d5-bf94-8a8782adbe41', {
+        //     method: 'POST',
+        //     body: image,
+        // }).then(
+        //     response => response.json()
+        // ).then(
+        //     json => {
+        //        console.log(json);
+        //     }
+        // )
     };
 
     const pickImage = async () => {
