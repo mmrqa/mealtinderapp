@@ -1,0 +1,58 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mealtinderapp-dev-213154-authRole",
+      "UnauthRoleArn": "arn:aws:iam::600650051591:role/amplify-mealtinderapp-dev-213154-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::600650051591:role/amplify-mealtinderapp-dev-213154-authRole",
+      "Region": "eu-central-1",
+      "DeploymentBucketName": "amplify-mealtinderapp-dev-213154-deployment",
+      "UnauthRoleName": "amplify-mealtinderapp-dev-213154-unauthRole",
+      "StackName": "amplify-mealtinderapp-dev-213154",
+      "StackId": "arn:aws:cloudformation:eu-central-1:600650051591:stack/amplify-mealtinderapp-dev-213154/08a6cc10-ccd6-11ed-9b4f-0241259ef0de",
+      "AmplifyAppId": "d2wyuxl0d12lxr"
+    }
+  },
+  "auth": {
+    "mealtinderappa49cdd6a": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-mealtinderapp-dev-213154-deployment/amplify-cfn-templates/auth/mealtinderappa49cdd6a-cloudformation-template.json",
+        "logicalId": "authmealtinderappa49cdd6a"
+      },
+      "lastPushTimeStamp": "2023-03-27T19:39:06.443Z",
+      "output": {
+        "UserPoolId": "eu-central-1_19nz4USsG",
+        "AppClientIDWeb": "1n5rtj3rkake9nfpf15q113mui",
+        "AppClientID": "722eq4hdaapsj22hvihiu1rmag",
+        "IdentityPoolId": "eu-central-1:4d2cd0d2-3ca7-4bc6-99b3-c954fc5b1409",
+        "UserPoolArn": "arn:aws:cognito-idp:eu-central-1:600650051591:userpool/eu-central-1_19nz4USsG",
+        "IdentityPoolName": "mealtinderappa49cdd6a_identitypool_a49cdd6a__dev",
+        "UserPoolName": "mealtinderappa49cdd6a_userpool_a49cdd6a"
+      },
+      "lastPushDirHash": "yXeS7McPtuEremSnilmvdNNogSY="
+    }
+  }
+}
