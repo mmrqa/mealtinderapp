@@ -118,7 +118,6 @@ function ChooseMealScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>React Native Tinder Card</Text>
       <View style={styles.cardContainer}>
         {characters.map((character) =>
           <TinderCard preventSwipe={['up', 'down']} 
