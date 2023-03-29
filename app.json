@@ -32,6 +32,14 @@
         "projectId": "38be080d-0f0c-4e15-b040-341215ac1359"
       }
     },
-    "owner": "mmrqa"
+    "owner": "mmrqa",
+    "plugins": [
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends."
+        }
+      ]
+    ]
   }
 }
