@@ -10,11 +10,11 @@ import {
     TouchableWithoutFeedback,
     Button,
     Keyboard,
+    ImageBackground
 } from 'react-native';
 
 import ColorStyleSheet from '../../components/ColorStyleSheet';
 import * as ImagePicker from 'expo-image-picker';
-import { ImageBackground } from 'react-native-web';
 
 const styles = StyleSheet.create({
     container: {
