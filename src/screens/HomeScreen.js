@@ -64,7 +64,8 @@ export default function HomeScreen() {
     const [status, setStatus] = useState('baseImage');
 
     const uploadRecipe = async () => {
-        console.log(image);
+        alert("uploading");
+        //console.log(image);
         // Fetch for later use when Backend is ready
         // fetch('https://webhook.site/61eb2c5d-35f9-45d5-bf94-8a8782adbe41', {
         //     method: 'POST',
