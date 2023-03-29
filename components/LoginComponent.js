@@ -3,7 +3,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { useState } from "react";
 
 import SettingsButton from "./SettingsButton";
-import login_id from "../components/Back4AppApi";
 
 export default function LoginComponent({ isVisible, children, onClose }) {
     const [loggedIn, setLoggedIn] = useState(false)
@@ -11,30 +10,7 @@ export default function LoginComponent({ isVisible, children, onClose }) {
     const [password, setPassword] = useState('')
 
     function onPressLogin() {
-
-        const url = new URL('https://parseapi.back4app.com/login');
-        url.searchParams.append('username', username);
-        url.searchParams.append('password', password);
-
-        fetch(url.toString(), {
-            method: 'GET',
-            headers: {
-                'X-Parse-Application-Id': login_id.application_id,
-                'X-Parse-REST-API-Key': login_id.rest_api_key,
-                'X-Parse-Revocable-Session': '1'
-            }
-        })
-            .then(response => {
-                if (response.status === 200) {
-                    console.log(response)
-                    setLoggedIn(true)
-                } else {
-                    alert("Cannot log in ")
-                }
-            })
-            .catch(error => {
-                alert("Error: " + error.code + " " + error.message)
-            });
+        setLoggedIn(true)
     }
 
     function onPressLogout() {
