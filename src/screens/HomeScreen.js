@@ -6,7 +6,6 @@ import {
     StyleSheet,
     Text,
     Platform,
-    Image,
     TouchableWithoutFeedback,
     Button,
     Keyboard,
