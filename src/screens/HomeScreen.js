@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
 export default function HomeScreen() {
     const [image, setImage] = useState(require('../../assets/img/upload_food.jpg'));
     const [status, setStatus] = useState('baseImage');
-    
+
     const uploadRecipe = async () => {
         console.log(image);
         // Fetch for later use when Backend is ready
@@ -109,9 +109,6 @@ export default function HomeScreen() {
                     <TextInput placeholder="Duration" style={styles.textInput} />
 
                     <ImageBackground source={{ uri: image }} style={{ width: '100%', height: 200, borderRadius: 5, shadowOpacity: 0.3 }}>
-                       {status === 'baseImage' && <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={styles.textAddImage}>Hit the + and add a picture</Text>
-                        </View>}
                         <View style={styles.btnAddImage}>
                             <Button title="+" onPress={pickImage} />
                         </View>
