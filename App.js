@@ -6,6 +6,10 @@ import ProfileScreen from './src/screens/ProfileScreen';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { DefaultTheme, Provider } from 'react-native-paper';
 
+import { Amplify } from 'aws-amplify'
+import awsconfig from './aws-exports'
+
+Amplify.configure(awsconfig)
 
 const Tab = createMaterialBottomTabNavigator();
 

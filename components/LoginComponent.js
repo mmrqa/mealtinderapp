@@ -2,6 +2,9 @@ import { View, Text, Modal, Pressable, StyleSheet, TextInput } from "react-nativ
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { useState } from "react";
 
+import { Auth } from 'aws-amplify'
+
+
 import SettingsButton from "./SettingsButton";
 
 export default function LoginComponent({ isVisible, children, onClose }) {
@@ -9,11 +12,26 @@ export default function LoginComponent({ isVisible, children, onClose }) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
 
-    function onPressLogin() {
+    async function onPressLogin() {
+        try {
+            const user = await Auth.signIn("dummyuser@dummy.com", "DummyPassword");
+            setUsername(user.username)
+            console.log(user)
+        } catch (error) {
+            console.log(error)
+            setLoggedIn(false)
+            return
+        }
         setLoggedIn(true)
     }
 
-    function onPressLogout() {
+    async function onPressLogout() {
+        try {
+            await Auth.signOut();
+        } catch (error) {
+            console.log(error)
+            return
+        }
         setLoggedIn(false)
     }
 
