@@ -45,18 +45,12 @@ const styles = StyleSheet.create({
         bottom: 1,
         borderRadius: 10,
         margin: 5,
-    },
-    iconPhoto: {
-       flex: 1,
-       justifyContent: 'center',
-       alignItems: 'center'
     }
 });
 
 
 export default function HomeScreen() {
     const [image, setImage] = useState('');
-    const [status, setStatus] = useState('baseImage');
 
     const uploadRecipe = async () => {
         alert("uploading");
@@ -87,7 +81,6 @@ export default function HomeScreen() {
 
         if (!result.canceled) {
             setImage(result.assets[0].uri);
-            setStatus('picked');
         }
     };
 
@@ -104,15 +97,7 @@ export default function HomeScreen() {
                     <TextInput placeholder="Link" style={styles.textInput} />
                     <TextInput placeholder="Duration" style={styles.textInput} />
 
-                    <ImageBackground source={{ uri: image}} style={{ width: '100%', height: 200, borderRadius: 5, borderWidth: 1, borderColor: '#000',shadowOpacity: 0.3 }}>
-                        <View style={styles.iconPhoto}>
-                            <Text>Choose your </Text>
-                    <MaterialCommunityIcons
-                        name="image"
-                        color= 'black'
-                        size= '35'
-                    />
-                    </View>
+                    <ImageBackground source={{ uri: image }} style={{ width: '100%', height: 200, borderRadius: 5, borderWidth: 1, borderColor: '#000', shadowOpacity: 0.3 }}>
                         <View style={styles.btnAddImage}>
                             <Button title="+" onPress={pickImage} />
                         </View>
