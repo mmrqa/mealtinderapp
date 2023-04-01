@@ -11,7 +11,7 @@ import {
     Keyboard,
     ImageBackground
 } from 'react-native';
-
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ColorStyleSheet from '../../components/ColorStyleSheet';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -46,22 +46,16 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         margin: 5,
     },
-    textAddImage: {
-        backgroundColor: '#2196F3',
-        color: 'white',
-        fontSize: 16,
-        padding: 3,
-        borderRadius: 10,
-        shadowColor: 'black',
-        shadowOpacity: 0.2,
-        shadowRadius: 20,
+    iconPhoto: {
+       flex: 1,
+       justifyContent: 'center',
+       alignItems: 'center'
     }
 });
 
 
 export default function HomeScreen() {
-    const placerholderImage = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.hostgator.com%2Fhelp%2Farticle%2Fadding-images-in-weebly&psig=AOvVaw0FykBwG6Wjqq4uBHrzSKZ8&ust=1680198591927000&source=images&cd=vfe&ved=0CBAQjRxqFwoTCKDy8tXZgf4CFQAAAAAdAAAAABAE";
-    const [image, setImage] = useState(placerholderImage);
+    const [image, setImage] = useState('');
     const [status, setStatus] = useState('baseImage');
 
     const uploadRecipe = async () => {
@@ -110,7 +104,15 @@ export default function HomeScreen() {
                     <TextInput placeholder="Link" style={styles.textInput} />
                     <TextInput placeholder="Duration" style={styles.textInput} />
 
-                    <ImageBackground source={{ uri: image}} style={{ width: '100%', height: 200, borderRadius: 5, shadowOpacity: 0.3 }}>
+                    <ImageBackground source={{ uri: image}} style={{ width: '100%', height: 200, borderRadius: 5, borderWidth: 1, borderColor: '#000',shadowOpacity: 0.3 }}>
+                        <View style={styles.iconPhoto}>
+                            <Text>Choose your </Text>
+                    <MaterialCommunityIcons
+                        name="image"
+                        color= 'black'
+                        size= '35'
+                    />
+                    </View>
                         <View style={styles.btnAddImage}>
                             <Button title="+" onPress={pickImage} />
                         </View>
