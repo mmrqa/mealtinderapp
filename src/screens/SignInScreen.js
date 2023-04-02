@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, ImageBackground, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 
-const SignInScreen = () => {
+const SignInScreen = ({navigation}) => {
   const handleLogin = () => {
-    // Handle login logic
+    navigation.navigate('AppContent');
   };
 
   const handleForgotPassword = () => {
