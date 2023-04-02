@@ -11,7 +11,7 @@ import {
     Keyboard,
     ImageBackground
 } from 'react-native';
-
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ColorStyleSheet from '../../components/ColorStyleSheet';
 import * as ImagePicker from 'expo-image-picker';
 
@@ -45,26 +45,16 @@ const styles = StyleSheet.create({
         bottom: 1,
         borderRadius: 10,
         margin: 5,
-    },
-    textAddImage: {
-        backgroundColor: '#2196F3',
-        color: 'white',
-        fontSize: 16,
-        padding: 3,
-        borderRadius: 10,
-        shadowColor: 'black',
-        shadowOpacity: 0.2,
-        shadowRadius: 20,
     }
 });
 
 
 export default function HomeScreen() {
-    const [image, setImage] = useState(require('../../assets/img/upload_food.jpg'));
-    const [status, setStatus] = useState('baseImage');
-    
+    const [image, setImage] = useState('');
+
     const uploadRecipe = async () => {
-        console.log(image);
+        alert("uploading");
+        //console.log(image);
         // Fetch for later use when Backend is ready
         // fetch('https://webhook.site/61eb2c5d-35f9-45d5-bf94-8a8782adbe41', {
         //     method: 'POST',
@@ -91,7 +81,6 @@ export default function HomeScreen() {
 
         if (!result.canceled) {
             setImage(result.assets[0].uri);
-            setStatus('picked');
         }
     };
 
@@ -108,10 +97,7 @@ export default function HomeScreen() {
                     <TextInput placeholder="Link" style={styles.textInput} />
                     <TextInput placeholder="Duration" style={styles.textInput} />
 
-                    <ImageBackground source={{ uri: image }} style={{ width: '100%', height: 200, borderRadius: 5, shadowOpacity: 0.3 }}>
-                       {status === 'baseImage' && <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-                            <Text style={styles.textAddImage}>Hit the + and add a picture</Text>
-                        </View>}
+                    <ImageBackground source={{ uri: image }} style={{ height: 200, borderRadius: 5, borderWidth: 1, borderColor: '#000', shadowOpacity: 0.3 }}>
                         <View style={styles.btnAddImage}>
                             <Button title="+" onPress={pickImage} />
                         </View>
