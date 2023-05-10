@@ -9,10 +9,11 @@ import {
     TouchableWithoutFeedback,
     Button,
     Keyboard,
-    ImageBackground
+    ImageBackground,
+    Image
 } from 'react-native';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import ColorStyleSheet from '../../components/ColorStyleSheet';
+import exampleImage from '../../assets/img/template_food.jpg';
 import * as ImagePicker from 'expo-image-picker';
 
 const styles = StyleSheet.create({
@@ -50,7 +51,8 @@ const styles = StyleSheet.create({
 
 
 export default function HomeScreen() {
-    const [image, setImage] = useState('');
+    const exampleImageUri = Image.resolveAssetSource(exampleImage).uri
+    const [image, setImage] = useState(exampleImageUri);
 
     const uploadRecipe = async () => {
         alert("uploading");
